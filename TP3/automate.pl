@@ -63,7 +63,6 @@ chemin(ED, EA) :- existe_parcours(ED, EA, []).
 
 
 % ECRIRE existe_parcours
-appartient(X,[X]).
 appartient(X,[X|_]).
 appartient(X,[_|Y]):-appartient(X,Y).
 
