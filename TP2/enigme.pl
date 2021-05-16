@@ -48,6 +48,14 @@ print_maisons([X|L]):- write(X),
                        nl, 
                        print_maisons(L).
 
-
+% ?- solution .
+% Le résultat est : 
+/*
+maison(jaune, francais, dentiste, eau, paul)
+maison(orange, suisse, boucher, the, jacques)
+maison(rouge, anglais, prof_russe, lait, bernard)
+maison(blanche, espagnol, cultivateur, cidre, henri)
+maison(verte, italien, fleuriste, cafe, andre)
+*/
 
 
