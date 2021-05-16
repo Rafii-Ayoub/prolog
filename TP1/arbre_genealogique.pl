@@ -28,6 +28,9 @@ parent(henri2, charles4).
 parent(henri2, margot).
 parent(henri2, froncois2).
 parent(charles4, elisabeth ).
+
+ /*        Définition des regles        */ 
+
 /*-------------------------------------------------------------------------*/
                  % Définir le prédicat pere 
 
