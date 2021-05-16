@@ -24,7 +24,7 @@ transition(e3, c, e4).
 transition(e4, a, e5).
 transition(e4, b, e3).
 transition(e5, a, e5).
-transition(e3, a, e5).
+
 
 % ========================= regles ====================================== %
 
@@ -62,17 +62,16 @@ parcours_ch([X|L1],EI,EF,[EI,C|L2]):-transition(EI,X,C),
 chemin(ED, EA) :- existe_parcours(ED, EA, []).
 
 
-% ECRIRE existe_parcours
+% Le predicat existe_parcours
+
 appartient(X,[X|_]).
 appartient(X,[_|Y]):-appartient(X,Y).
 
 existe_parcours(ED,ED,_):-!.
 existe_parcours(ED, EA, LI):- transition(ED,_,EI),not(appartient(EI,[ED|LI])),existe_parcours(EI, EA, [ED|LI]).
 
-% ECRIRE est_accessible
+% Le predicat est_accessible
 
-
-
-% ECRIRE permet_acces
+est_accessible(E):- setof(X,(chemin(E,X)),LX) , LX = [e1, e2, e3, e4, e5].
 
 
