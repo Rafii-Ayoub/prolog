@@ -2,15 +2,25 @@
 %  Description des éléments du système                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-partition(x, [court, long], [(0, 50), (50, 100)]).
-partition(y, [etroit, large], [(0, 50), (50, 100)]).
+%partition(x, [court, long], [(0, 50), (50, 100)]).
+%partition(y, [etroit, large], [(0, 50), (50, 100)]).
+partition(x, [court, long], [(0, 60), (40, 100)]).
+partition(y, [etroit, large], [(0, 60), (40, 100)]).
+partition(z, [bas, haut], [(0, 60), (40, 100)]).
+
 
 regle(xyr, court, etroit, petit).
 regle(xyr, court, large, moyen).
 regle(xyr, long, etroit, moyen).
 regle(xyr, long, large, grand).
 
-% A compléter
+
+regle(rzs, petit, bas, tres_petit).
+regle(rzs, petit, haut, petit).
+regle(rzs, moyen, bas, petit).
+regle(rzs, moyen, haut, grand).
+regle(rzs, grand, bas, grand).
+regle(rzs, grand, haut, tres_grand).
 
 
 
@@ -47,6 +57,15 @@ inference(NomRel, DS1, DS2, DescS) :- setof(SymbS, infer2(NomRel, DS1, DS2, Symb
 systeme(xyr, Numx, Numy, DLr) :- description(x, Numx, DLx),
                                  description(y, Numy, DLy),
                                  inference(xyr, DLx, DLy, DLr).
+
+systeme2(xyzs,Numx, Numy, Numz, DLs):-description(x, Numx, DLx),
+                                     description(y, Numy, DLy),
+                                     description(z, Numz, DLz),
+                                     inference(xyr, DLx, DLy, DLr),
+                                     inference(rzs, DLr, DLz, DLs).
+
+
+
 
 
 
