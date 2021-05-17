@@ -4,10 +4,14 @@
 
 %partition(x, [court, long], [(0, 50), (50, 100)]).
 %partition(y, [etroit, large], [(0, 50), (50, 100)]).
+
 partition(x, [court, long], [(0, 60), (40, 100)]).
 partition(y, [etroit, large], [(0, 60), (40, 100)]).
 partition(z, [bas, haut], [(0, 60), (40, 100)]).
-
+appartient( tres_petit ,(0, 25)).
+appartient( petit, 25, 50)).
+appartient( grand ,(50, 75)).
+appartient( tres_grand , (75, 100)).
 
 regle(xyr, court, etroit, petit).
 regle(xyr, court, large, moyen).
@@ -65,8 +69,11 @@ systeme2(xyzs,Numx, Numy, Numz, DLs):-description(x, Numx, DLx),
                                      inference(rzs, DLr, DLz, DLs).
 
 
+%conversion_intervalle(NomVar, DLs ,Valint):- 
+%conversion_numerique(NomVar, DLs, Valnum):- conversion_intervalle(NomVar, DLs, Valint),random(min,max,Valnum)..
 
 
-
+    
+    
 
 
